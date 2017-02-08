@@ -5,9 +5,10 @@ class WebhooksController < ApplicationController
 
     def contacts
         begin
-            body = request.body.read
-            msg = JSON.parse(body.gsub("\\n","<br/>").gsub("\\",""))
-            ContactsMailer.send_contact_msg(msg).deliver_later
+            key = params[:key]
+            value = params[:value]
+            msg = JSON.parse(value.gsub("\\n","<br/>").gsub("\\\\","").gsub(/\\\"/,"\""))
+            ContactsMailer.send_contact_msg(key, msg).deliver_later
             render :json => { :status => "ok" }
         rescue Exception => e
             render :json => { :status => "ko", :error => e }

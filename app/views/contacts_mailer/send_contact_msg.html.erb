@@ -1,3 +1,28 @@
-<p>
-    <%= @msg["message"].html_safe %>
-</p>
+<head>
+    <style type="text/css">
+        .body {
+            font-size: 14px;
+        }
+        .details {
+            font-weight: bold;
+        }
+        li {list-style-type: none;}
+        .message {
+            background-color: lightyellow;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Richiesta contatto</h1>
+    <p class="details">
+        <ul>
+            <li>messaggio da: <%= @msg["name"] %></li>
+            <li>indirizzo e-mail: <%= @msg["email"] %></li>
+        </ul>
+    </p>
+    <h2>Inizio messaggio:</h2>
+    <p class="message">
+        <%= @msg["message"].html_safe %>
+    </p>
+</body>
