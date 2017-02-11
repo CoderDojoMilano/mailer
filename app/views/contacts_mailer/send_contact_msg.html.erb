@@ -1,28 +1,26 @@
 <head>
     <style type="text/css">
-        .body {
+        body {
             font-size: 14px;
+            font-family: sans-serif;
+            background-color: ghostwhite;
         }
         .details {
             font-weight: bold;
-            border: 1px dash blue;
-        }
-        li {list-style-type: none;}
-        .message {
-            background-color: lightyellow;
+            font-size: 12;
+            text-align: left;
             padding: 15px;
+        }
+        .message {
+            padding: 15px;
+            border: 1px dashed lightblue;
         }
     </style>
 </head>
 <body>
-    <h1>Richiesta contatto</h1>
-    <p class="details">
-        <ul>
-            <li>messaggio da: <%= @msg["name"] %></li>
-            <li>indirizzo e-mail: <%= @msg["email"] %></li>
-        </ul>
-    </p>
-    <h2>Inizio messaggio:</h2>
+    <div class="details">
+        <p>Mittente: <%= @msg["name"] %> (<%= @msg["email"] %>)</p>
+    </div>
     <p class="message">
         <%= @msg["message"].html_safe %>
     </p>
