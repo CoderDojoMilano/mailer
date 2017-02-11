@@ -35,8 +35,9 @@ module Mailer
     config.action_mailer.delivery_method = :smtp
 
     config.action_mailer.smtp_settings = {
-      address:              'smtp.gmail.com',
+      address:              ENV['smtp_server'],
       port:                     587,
+      domain:               'kvstore.io',
       user_name:         ENV['smtp_user'],
       password:            ENV['smtp_password'],
       authentication:     'plain',

@@ -18,7 +18,7 @@ class WebhooksController < ApplicationController
 private
 
     def get_security_token
-        render :nothing => true, :status => 401 unless request.headers["X-KvStore-Security"] == ENV['kvstore_security_token']
+        render :nothing => true, :status => 401 unless request.headers["KvStore-Security"] == ENV['kvstore_security_token']
     end
 
 end
